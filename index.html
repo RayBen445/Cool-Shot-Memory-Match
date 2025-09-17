@@ -9,30 +9,41 @@
 </head>
 <body>
 
-    <div class="game-container">
+    <div class="level-select-container" id="level-selection">
+        <h1>Select a Level</h1>
+        <div class="level-grid" id="level-grid">
+            </div>
+    </div>
+
+    <div class="game-container hidden" id="game-wrapper">
         <header class="game-header">
-            <h1>Cool Shot Memory</h1>
-            <div class="game-stats">
+            <h1 id="game-level-title">Level X</h1> <div class="game-stats">
                 <div class="stat">
                     <span>Moves:</span>
                     <span id="moves-count">0</span>
                 </div>
+                <div class="stat">
+                    <span>Remaining:</span>
+                    <span id="remaining-moves-count">0</span>
+                </div>
             </div>
         </header>
 
-        <section class="game-board" id="game-board">
-            </section>
+        <section class="game-board" id="game-board"></section>
 
         <div class="win-message" id="win-message">
-            <h2>You Won!</h2>
-            <button id="play-again-btn">Play Again</button>
+            <h2 id="win-level-text">Level X Complete!</h2>
+            <button class="menu-btn" id="next-level-btn">Next Level</button>
+            <button class="menu-btn" id="back-to-menu-win">Main Menu</button>
         </div>
 
-        <footer class="game-footer">
-            <p>&copy; 2025 Cool Shot Systems. All Rights Reserved.</p>
-        </footer>
+        <div class="lose-message" id="lose-message">
+            <h2>You Lost!</h2>
+            <button class="menu-btn" id="retry-level-btn">Retry Level</button>
+            <button class="menu-btn" id="back-to-menu-lose">Main Menu</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-</html>
+                </html>
