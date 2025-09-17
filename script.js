@@ -167,10 +167,12 @@ function updateMoves() {
     remainingMoves--;
     movesCountSpan.textContent = moves;
     remainingMovesSpan.textContent = remainingMoves;
-    if (remainingMoves === 0 && matchedPairs < currentLevel.pairs) {
+
+    // Check if the player has lost
+    if (remainingMoves <= 0 && matchedPairs < currentLevel.pairs) {
+        lockBoard = true; // Lock the board IMMEDIATELY
         setTimeout(() => { 
-            loseMessage.classList.add('show'); 
-            lockBoard = true; 
+            loseMessage.classList.add('show'); // Show message after a delay
         }, 500);
     }
 }
