@@ -168,7 +168,7 @@ function updateMoves() {
     movesCountSpan.textContent = moves;
     remainingMovesSpan.textContent = remainingMoves;
 
-    // Check if the player has lost
+    // Check if the player has lost -- THIS IS THE CORRECTED LOGIC
     if (remainingMoves <= 0 && matchedPairs < currentLevel.pairs) {
         lockBoard = true; // Lock the board IMMEDIATELY
         setTimeout(() => { 
