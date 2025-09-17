@@ -2,173 +2,189 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 :root {
-    --bg-color: #eaf2f8;
-    --primary-text-color: #566573;
-    --card-shadow-light: rgba(255, 255, 255, 0.7);
-    --card-shadow-dark: rgba(174, 182, 191, 0.5);
-    --card-size: 100px; /* Controls the size of the cards */
+    --primary-color: #6d5dfc;
+    --background-color: #e0e5ec;
+    --text-color: #555;
+    --light-shadow: rgba(255, 255, 255, 0.9);
+    --dark-shadow: rgba(0, 0, 0, 0.15);
 }
 
-body {
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* --- Utility & Menu Buttons --- */
-.hidden {
-    display: none !important;
-}
-
-.menu-btn {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
-    box-shadow: 5px 5px 10px var(--card-shadow-dark),
-                -5px -5px 10px var(--card-shadow-light);
-    transition: box-shadow 0.2s ease;
-    margin: 5px;
-}
-
-.menu-btn:hover {
-    box-shadow: inset 2px 2px 5px var(--card-shadow-dark),
-                inset -2px -2px 5px var(--card-shadow-light);
-}
-
-
-/* --- Level Selection --- */
-.level-select-container {
-    text-align: center;
-    padding: 30px;
-    background-color: var(--bg-color);
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px var(--card-shadow-dark),
-                -10px -10px 20px var(--card-shadow-light);
-    width: 100%;
-    max-width: 700px;
-}
-
-.level-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.level-btn {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5em;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
-    box-shadow: 5px 5px 10px var(--card-shadow-dark),
-                -5px -5px 10px var(--card-shadow-light);
-    transition: all 0.2s ease;
-}
-
-.level-btn:hover {
-    box-shadow: inset 2px 2px 5px var(--card-shadow-dark),
-                inset -2px -2px 5px var(--card-shadow-light);
-}
-
-.level-btn.locked {
-    opacity: 0.5;
-    cursor: not-allowed;
-    box-shadow: inset 2px 2px 5px var(--card-shadow-dark);
-}
-
-.level-btn.locked:hover {
-    box-shadow: inset 2px 2px 5px var(--card-shadow-dark);
-}
-
-/* --- Main Game Container --- */
-.game-container {
-    width: 100%;
-    max-width: 800px;
-    background-color: var(--bg-color);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 10px 10px 20px var(--card-shadow-dark),
-                -10px -10px 20px var(--card-shadow-light);
-    text-align: center;
-}
-
-.game-header h1 {
-    margin-top: 0;
-    font-size: 2em;
-}
-
-.game-stats {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
     display: flex;
-    justify-content: space-around;
-    font-size: 1.2em;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.page-header {
+    text-align: center;
+    padding: 20px 0;
     margin-bottom: 20px;
 }
 
-/* --- Game Board and Cards --- */
-.game-board {
-    display: grid;
-    gap: 15px;
-    justify-content: center;
-    margin: 0 auto;
+.page-header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
-.card {
-    width: var(--card-size);
-    height: var(--card-size);
-    background-color: var(--bg-color);
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Neumorphism Styling */
+.neumorphic {
+    border-radius: 20px;
+    background: var(--background-color);
+    box-shadow: 8px 8px 15px var(--dark-shadow), -8px -8px 15px var(--light-shadow);
+}
+
+.neumorphic-inset {
     border-radius: 15px;
-    cursor: pointer;
+    background: var(--background-color);
+    box-shadow: inset 5px 5px 10px var(--dark-shadow), inset -5px -5px 10px var(--light-shadow);
+}
+
+.main-content {
+    padding: 30px;
+}
+
+.game-controls {
     display: flex;
     justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
     align-items: center;
-    transition: box-shadow 0.3s ease;
-    box-shadow: 5px 5px 10px var(--card-shadow-dark),
-                -5px -5px 10px var(--card-shadow-light);
 }
 
-.card.flipped, .card.matched {
-    box-shadow: inset 5px 5px 10px var(--card-shadow-dark),
-                inset -5px -5px 10px var(--card-shadow-light);
-    cursor: default;
+.control-btn, .difficulty-select {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    background: var(--background-color);
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
 }
 
-.card i {
-    font-size: 40px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.control-btn:hover, .difficulty-select:hover {
+    color: var(--primary-color);
+    box-shadow: 3px 3px 6px var(--dark-shadow), -3px -3px 6px var(--light-shadow);
 }
 
-.card.flipped i, .card.matched i {
-    opacity: 1;
-    color: #3498db;
+.control-btn:active {
+    box-shadow: inset 3px 3px 6px var(--dark-shadow), inset -3px -3px 6px var(--light-shadow);
 }
 
-/* --- Win/Lose Messages --- */
-.win-message, .lose-message {
-    display: none;
-    margin-top: 20px;
+.game-area {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.win-message.show, .lose-message.show {
+.game-info {
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.game-info span {
     display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-.lose-message h2 {
-    color: #e74c3c;
+.chess-board {
+    display: grid;
+    /* UPDATED: Use 1fr to divide space equally */
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    
+    /* UPDATED: Responsive width and aspect ratio */
+    width: min(90vw, 480px); /* 90% of viewport width, capped at 480px */
+    aspect-ratio: 1 / 1; /* Ensures the board is always a perfect square */
+    border: none;
+}
+
+.chess-square {
+    /* REMOVED: width and height are now controlled by the grid */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* UPDATED: Responsive font size */
+    font-size: min(7vw, 36px); /* Scales with screen, capped at 36px */
+    cursor: pointer;
+    position: relative;
+}
+
+
+.chess-square.light { background-color: #f0d9b5; }
+.chess-square.dark { background-color: #b58863; }
+
+.chess-square.selected {
+    background-color: #7efc85 !important;
+}
+
+.chess-square.valid-move::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.king-in-check {
+     background-color: #ff7675 !important;
+}
+
+.side-panel {
+    flex-basis: 220px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.captured-pieces h4, .moves-list h4 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pieces-display, #movesDisplay {
+    min-height: 80px;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 150px;
+    word-break: break-word;
+}
+
+/* Footer Styling */
+.page-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
 }
